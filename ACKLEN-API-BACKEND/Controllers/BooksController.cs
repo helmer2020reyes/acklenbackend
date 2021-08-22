@@ -35,6 +35,8 @@ namespace ACKLEN_API_BACKEND.Controllers
             _context.DeleteBook(book);
             return Ok();
         }
+
+        [HttpPut]
         public IActionResult UpdateBook([FromBody]BooksVM books)
         {
             _context.UpdateBook(books);
