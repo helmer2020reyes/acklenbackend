@@ -18,6 +18,8 @@ namespace ACKLEN_API_BACKEND
 {
     public class Startup
     {
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -28,9 +30,17 @@ namespace ACKLEN_API_BACKEND
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-           services.AddDbContext<postgresContext>(options => options.UseNpgsql("name=ConnectionStrings:Conectionbd"));
+            services.AddDbContext<postgresContext>(options => options.UseNpgsql("name=ConnectionStrings:Conectionbd"));
             services.AddTransient<BooksServices>();
             services.AddControllers();
+            services.AddCors( options => {
+                options.AddPolicy(name: MyAllowSpecificOrigins, 
+                    builder =>
+                    {
+                        builder.AllowAnyOrigin();
+                    });
+            } );
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ACKLEN_API_BACKEND", Version = "v1" });
