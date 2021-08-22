@@ -37,10 +37,11 @@ namespace ACKLEN_API_BACKEND.Controllers
             return Ok();
         }
 
-        [HttpPut]
-        public IActionResult UpdateBook([FromBody]BooksVM books)
+        [HttpPut("{id}")]
+        public IActionResult UpdateBook([FromBody]BooksVM book,int id)
         {
-            _context.UpdateBook(books);
+            
+            _context.UpdateBook(id, book);
             return Ok();
         }
 

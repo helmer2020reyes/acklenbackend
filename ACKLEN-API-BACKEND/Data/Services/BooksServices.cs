@@ -47,22 +47,23 @@ namespace ACKLEN_API_BACKEND.Data.Services
             _context.SaveChanges();
 
         }
-        public void UpdateBook(BooksVM book)
+        public Book UpdateBook(int id, BooksVM book)
         {
-            var idbook = _context.Books.Find(book.Id);
-            idbook.Id = book.Id;
-            idbook.Title = book.Title;
-            idbook.Description = book.Description;
-            idbook.Isread = book.Isread;
-            idbook.Dateread = book.Dateread;
-            idbook.Rate = book.Rate;
-            idbook.Genre = book.Genre;
-            idbook.Author = book.Author;
-            idbook.Coverurl = book.Coverurl;
-            idbook.Dateadded = book.Dateadded;
-            _context.Books.Update(idbook);
+            var _book = _context.Books.Find(id);
+
+
+            _book.Title = book.Title == null ? _book.Title : book.Title;
+            _book.Description = book.Description == null ? _book.Description : book.Description;
+//            _book.Isread = book.Isread == null ? _book.Isread : book.Isread;
+            _book.Dateread = book.Dateread == null ? _book.Dateread : book.Dateread;
+            _book.Rate = book.Rate == null ? _book.Rate : book.Rate;
+            _book.Genre = book.Genre == null ? _book.Genre : book.Genre;
+            _book.Author = book.Author == null ? _book.Author : book.Author;
+            _book.Coverurl = book.Coverurl == null ? _book.Coverurl : book.Coverurl;
+
+            _context.Books.Update(_book);
             _context.SaveChanges();
-           
+            return _book;
         }
         public List<Book> ListBooks()
         {
