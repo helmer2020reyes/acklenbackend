@@ -1,5 +1,6 @@
 ﻿using ACKLEN_API_BACKEND.Data.Services;
 using ACKLEN_API_BACKEND.Data.VM;
+using ACKLEN_API_BACKEND.EntityModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -42,6 +43,13 @@ namespace ACKLEN_API_BACKEND.Controllers
             _context.UpdateBook(books);
             return Ok();
         }
+
+        [HttpGet]
+        public ActionResult< List<Book> > ListBooks()
+        {
+            return _context.ListBooks();
+        }
+
         
     }
 }

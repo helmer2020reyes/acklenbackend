@@ -1,5 +1,6 @@
 ﻿using ACKLEN_API_BACKEND.Data.VM;
 using ACKLEN_API_BACKEND.EntityModels;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -62,6 +63,12 @@ namespace ACKLEN_API_BACKEND.Data.Services
             _context.Books.Update(idbook);
             _context.SaveChanges();
            
+        }
+        public List<Book> ListBooks()
+        {
+            var bk = _context.Books.ToList<Book>();
+
+            return bk;
         }
 
     }
