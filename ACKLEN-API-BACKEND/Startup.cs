@@ -39,7 +39,7 @@ namespace ACKLEN_API_BACKEND
                     {
                         builder.AllowAnyOrigin();
                     });
-            } );
+            });
 
             services.AddSwaggerGen(c =>
             {
@@ -58,6 +58,7 @@ namespace ACKLEN_API_BACKEND
             }
 
             app.UseRouting();
+            app.UseCors(this.MyAllowSpecificOrigins);
 
             app.UseAuthorization();
 
