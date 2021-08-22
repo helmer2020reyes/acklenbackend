@@ -30,10 +30,10 @@ namespace ACKLEN_API_BACKEND.Controllers
             return Ok();
 
         }
-        [HttpDelete]
-        public IActionResult Deletebook([FromBody]BooksVM book)
+        [HttpDelete("{id}")]
+        public IActionResult Deletebook(int id)
         {
-            _context.DeleteBook(book);
+            _context.DeleteBook(id);
             return Ok();
         }
 

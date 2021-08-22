@@ -39,10 +39,9 @@ namespace ACKLEN_API_BACKEND.Data.Services
             _context.SaveChanges();
 
         }
-        public void DeleteBook(BooksVM book)
+        public void DeleteBook(int id)
         {
-
-           var elim= _context.Books.Find(book.Id);
+           var elim= _context.Books.Find(id);
             _context.Books.Remove(elim);
             _context.SaveChanges();
 
@@ -54,7 +53,6 @@ namespace ACKLEN_API_BACKEND.Data.Services
 
             _book.Title = book.Title == null ? _book.Title : book.Title;
             _book.Description = book.Description == null ? _book.Description : book.Description;
-//            _book.Isread = book.Isread == null ? _book.Isread : book.Isread;
             _book.Dateread = book.Dateread == null ? _book.Dateread : book.Dateread;
             _book.Rate = book.Rate == null ? _book.Rate : book.Rate;
             _book.Genre = book.Genre == null ? _book.Genre : book.Genre;
