@@ -38,5 +38,31 @@ namespace ACKLEN_API_BACKEND.Data.Services
             _context.SaveChanges();
 
         }
+        public void DeleteBook(BooksVM book)
+        {
+
+           var elim= _context.Books.Find(book.Id);
+            _context.Books.Remove(elim);
+            _context.SaveChanges();
+
+        }
+        public void UpdateBook(BooksVM book)
+        {
+            var idbook = _context.Books.Find(book.Id);
+            idbook.Id = book.Id;
+            idbook.Title = book.Title;
+            idbook.Description = book.Description;
+            idbook.Isread = book.Isread;
+            idbook.Dateread = book.Dateread;
+            idbook.Rate = book.Rate;
+            idbook.Genre = book.Genre;
+            idbook.Author = book.Author;
+            idbook.Coverurl = book.Coverurl;
+            idbook.Dateadded = book.Dateadded;
+            _context.Books.Update(idbook);
+            _context.SaveChanges();
+           
+        }
+
     }
 }
