@@ -51,6 +51,12 @@ namespace ACKLEN_API_BACKEND.Controllers
             return _context.ListBooks();
         }
 
-        
+        [HttpGet("{id}")]
+        public ActionResult GetBookById(int id)
+        {
+            
+            return Ok(_context.getBookById(id));
+        }
+
     }
 }

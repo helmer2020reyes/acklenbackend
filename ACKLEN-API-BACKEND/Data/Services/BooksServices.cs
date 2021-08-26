@@ -70,5 +70,14 @@ namespace ACKLEN_API_BACKEND.Data.Services
             return bk;
         }
 
+        public Book getBookById(int id)
+        {
+           var book= _context.Books.Find(id);
+
+            return book;
+            
+
+        }
+
     }
 }

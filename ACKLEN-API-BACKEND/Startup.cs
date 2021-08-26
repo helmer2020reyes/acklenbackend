@@ -39,6 +39,7 @@ namespace ACKLEN_API_BACKEND
                     {
                         builder.AllowAnyOrigin();
                         builder.AllowAnyMethod();
+                        builder.AllowAnyHeader();
                     });
             });
 
