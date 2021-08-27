@@ -59,6 +59,7 @@ namespace ACKLEN_API_BACKEND
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ACKLEN_API_BACKEND v1"));
             }
 
+            app.UseHttpsRedirection();
             app.UseRouting();
             app.UseCors(this.MyAllowSpecificOrigins);
 
