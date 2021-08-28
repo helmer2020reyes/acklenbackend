@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "apis1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.ApiManagement/service/ACKLEN-API-BACKENDapi/apis/ACKLEN-API-BACKEND",
+      "type": "apis.azure"
+    }
+  }
+}
